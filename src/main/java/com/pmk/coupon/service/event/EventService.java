@@ -41,6 +41,11 @@ public class EventService {
         return eventRepository.save(event);
     }
 
+    /**
+     * 이벤트 오픈
+     * - Redis 재고 초기화
+     * - 이벤트 종료 시점 기준 TTL 설정
+     */
     @Transactional
     public Event openEvent(Long eventId) {
         Event event = getEvent(eventId);
@@ -60,6 +65,16 @@ public class EventService {
         return event;
     }
 
+    /**
+     * Redis-DB 정합성 복구용 API
+     *
+     * 시나리오:
+     * - Redis 발급 성공
+     * - DB 비동기 저장 일부 실패
+     *
+     * 해결:
+     * - DB를 기준(Source of Truth)으로 Redis 재고 재설정
+     */
     @Transactional(readOnly = true)
     public void syncEvent(Long eventId) {
         Event event = getEvent(eventId);
@@ -84,6 +99,7 @@ public class EventService {
         }
 
         event.close();
+        // 이벤트 종료 시 Redis 키 즉시 제거
         redisEventInitializer.clear(eventId);
         return event;
     }
@@ -94,6 +110,7 @@ public class EventService {
         event.updatePeriod(start, end);
     }
 
+    // 발급 가능 여부 검증 (상태 + 기간)
     @Transactional(readOnly = true)
     public Event validateIssuable(Long eventId) {
         Event event = getEvent(eventId);
