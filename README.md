@@ -118,6 +118,10 @@
 
 ---
 
+## 🛠️ 개발 환경
+
+- Java, Spring Boot, JPA, Redis, PostgreSQL
+
 ## ✍️ 마무리
 
 이 프로젝트를 통해  
