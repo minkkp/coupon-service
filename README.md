@@ -77,10 +77,9 @@
 - Redis 오류 발생 시 즉시 실패 응답 (Fail-Fast)
 - 불완전한 발급을 방지하기 위해 fallback 없이 처리
 
-### DB 비동기 저장 실패
+### DB 비동기 저장 실패시
 - 발급 결과에는 영향 없음
-- 운영자가 syncEvent API 호출
-  - DB를 기준(Source of Truth)으로 Redis 재고 복구
+- 운영자가 동기화 API 호출하여 DB를 기준(Source of Truth)으로 Redis 재고 복구
 
 ### 이벤트 종료 처리
 - 이벤트 종료 시 Redis 키 즉시 제거
