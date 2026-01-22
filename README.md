@@ -100,6 +100,7 @@
   DB에는 발급 성공 이력(CouponIssue)만 저장
   
 <img width="980" height="317" alt="image" src="https://github.com/user-attachments/assets/ea72d16e-8660-4c9f-a4b4-794b775a8848" />
+
 ---
 
 ## ⚡ 부하 테스트 (k6)
@@ -121,8 +122,8 @@
 - 평균 응답 시간: 약 1.5초
 - P95 응답 시간: 약 1.7초
 
-- 10만 발급을 목표로 하여 정확한 수량 보장과 안정적인 응답을 확인
-<img width="592" height="369" alt="image" src="https://github.com/user-attachments/assets/f6604e03-1dfe-4691-9bf5-06a8788e3b92" />
+<img width="592" height="366" alt="image" src="https://github.com/user-attachments/assets/2fb7c5fc-dc09-4556-afd4-6ae2148cf7dc" />
+
 ---
 
 ## ✍️ 마무리
