@@ -19,10 +19,10 @@
 
 - Redis + Lua 기반 선착순 제어 (원자 처리)  
   → 단일 Redis 연산으로 동시성 환경에서도 race condition 방지
-- 쿠폰발급 처리와 DB 이력 저장을 분리하여 병목 제거
+- 쿠폰 발급 처리와 이력 저장을 분리하여 병목 제거
 - Redis 장애 시 Fail-Fast 전략 적용  
-  → DB로 대체하지 않고 즉시 실패 처리하여 정합성 유지
-- DB를 기준으로 Redis 상태를 복구하는 운영 Sync API 제공
+  → 대체 처리 없이 즉시 실패 처리하여 정합성 유지
+- DB를 기준으로 Redis 상태를 재설정하는 동기화 API 제공
 - Redis TTL + closeEvent를 통한 이중 안전장치
 
 ---
@@ -34,7 +34,7 @@
   - Lua 스크립트로 쿠폰 중복 요청 체크 + 쿠폰 재고 감소를 단일 연산으로 처리
     
 - **DB**
-  - 쿠폰 발급 성공 이력만 저장
+  - 발급 성공 이력만 저장
   - 실시간 제어 ❌ / 최종 이력 저장 ⭕️
 
 - **Application**
@@ -55,7 +55,7 @@
   → 이벤트 생명주기 및 운영(open / close / sync) 관리
 
 - AsyncCouponIssueService  
-  → 발급 성공 이력 비동기 DB 저장
+  → 발급 이력 비동기 DB 저장
 
 ---
 
@@ -82,8 +82,8 @@
   - DB를 기준(Source of Truth)으로 Redis 재고 복구
 
 ### 이벤트 종료 처리
-- closeEvent 호출 시 Redis 키 즉시 제거
-- TTL 설정으로 close 누락 시 2차 안전장치 제공
+- 이벤트 종료 시 Redis 키 즉시 제거
+- TTL 설정으로 2차 안전장치 제공
 
 ---
 
