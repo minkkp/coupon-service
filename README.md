@@ -117,9 +117,7 @@
 10만 건 발급을 목표로 한 선착순 이벤트에서  
 정확한 수량 보장과 안정적인 응답을 확인
 
-<img width="592" height="368" alt="image" src="https://github.com/user-attachments/assets/0660ede7-8b79-4330-a71b-baa6417b6bbc" />
-
-
+<img width="592" height="369" alt="image" src="https://github.com/user-attachments/assets/f6604e03-1dfe-4691-9bf5-06a8788e3b92" />
 ---
 
 ## ✍️ 마무리
