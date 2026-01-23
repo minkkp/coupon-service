@@ -96,8 +96,8 @@
   쿠폰 발급 도메인과 연관관계를 맺지 않음
 - 이벤트(Event)는 발급 조건(기간, 수량)을 관리하는 기준 엔티티
 - 쿠폰(Coupon)은 이벤트를 통해 발급되는 혜택 정보
-- 쿠폰 발급 여부 판단은 Redis에서 처리하고,  
-  DB에는 발급 성공 이력(CouponIssue)만 저장
+- 쿠폰발급이력(CouponIssue)는 성공 이력만 저장,  
+  쿠폰 발급 여부 판단은 Redis에서 처리
   
 <img width="980" height="317" alt="image" src="https://github.com/user-attachments/assets/ea72d16e-8660-4c9f-a4b4-794b775a8848" />
 
