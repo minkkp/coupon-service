@@ -67,12 +67,6 @@ public class EventService {
 
     /**
      * Redis-DB 정합성 복구용 API
-     *
-     * 시나리오:
-     * - Redis 발급 성공
-     * - DB 비동기 저장 일부 실패
-     *
-     * 해결:
      * - DB를 기준(Source of Truth)으로 Redis 재고 재설정
      */
     @Transactional(readOnly = true)
