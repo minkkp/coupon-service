@@ -118,9 +118,8 @@
 - 발급 성공(sucess): 100,000
 - 재고 부족(sold_out): 13,286
 - 과발급: 0
-- HTTP 실패: 0%
+- HTTP 요청 실패: 0%
 - 평균 응답 시간: 약 1.5초
-- P95 응답 시간: 약 1.7초
 
 <img width="592" height="366" alt="image" src="https://github.com/user-attachments/assets/2fb7c5fc-dc09-4556-afd4-6ae2148cf7dc" />
 
