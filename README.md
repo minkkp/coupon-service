@@ -7,7 +7,7 @@
   
 ## 🛠️ 기술 스택
 
-- Java, Spring Boot, JPA, Redis, PostgreSQL
+- Spring Boot, JPA, Redis, PostgreSQL
 
   
 ## 📌 프로젝트 목적
