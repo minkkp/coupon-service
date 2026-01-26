@@ -90,7 +90,7 @@
 - 쿠폰(Coupon)은 이벤트를 통해 발급되는 혜택 정보
 - 쿠폰발급이력(CouponIssue)은 발급 성공 이력만 저장하며,  
   실제 발급 여부 판단은 Redis에서 처리하고  
-  (user_id, event_id) 유니크 제약을 적용해 대량 데이터 환경에서도 중복 발급을 방지
+  (user_id, event_id) 유니크 제약을 적용해 대량 데이터 환경에서도 중복 발급 방지
 
   
 <img width="980" height="317" alt="image" src="https://github.com/user-attachments/assets/ea72d16e-8660-4c9f-a4b4-794b775a8848" />
