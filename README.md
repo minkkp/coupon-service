@@ -4,16 +4,19 @@ Redis와 Lua를 활용해
 대규모 요청 환경에서 한정 수량의 쿠폰을 정확하게 발급하고,  
 장애 대응까지 고려한 토이 프로젝트입니다.
 <br><br>
+
 ## 🛠️ 기술 스택
 
 - Spring Boot, JPA, Redis, PostgreSQL
 <br><br>
+
 ## 📌 프로젝트 목적
 
 - 대규모 트래픽 환경에서 한정 수량 쿠폰을 정확하게 발급
 - 트래픽 증가, Redis 장애, 운영 복구까지 고려한 설계 경험
 - 쿠폰 과발급 / 중복 발급 방지
 <br><br>
+
 ## 🧠 핵심 설계 요약
 
 - Redis + Lua 기반 선착순 제어 (원자 처리)  
@@ -24,6 +27,7 @@ Redis와 Lua를 활용해
   → DB에 저장된 발급 이력을 기준으로 Redis 재고를 다시 맞추는 동기화 API 제공
 - 이벤트 종료 시 Redis 키를 즉시 삭제하고, 누락을 대비해 만료 시간(TTL)도 함께 설정
 <br><br>
+
 ## 🏗️ 아키텍처 개요
 
 - **Redis**
@@ -37,6 +41,7 @@ Redis와 Lua를 활용해
   - 쿠폰 발급 흐름 오케스트레이션
   - 이벤트 생명주기(open / close / sync) 관리
 <br><br>
+
 ## 🧩 핵심 코드 구성
 
 - CouponFacadeService  
@@ -50,8 +55,8 @@ Redis와 Lua를 활용해
 
 - AsyncCouponIssueService  
   → 발급 이력을 비동기 DB 저장
+<br><br>
 
-  
 ## 🔄 쿠폰 발급 흐름
 
 1. 이벤트(쿠폰) 상태 및 기간 검증 (DB)
@@ -60,6 +65,7 @@ Redis와 Lua를 활용해
    - 쿠폰 재고 체크 및 감소
 3. 발급 성공 시 DB에 비동기로 내역 저장
 <br><br>
+
 ## 🚨 장애 · 이슈 대응
 
 ### Redis 장애
@@ -72,6 +78,7 @@ Redis와 Lua를 활용해
 - 이벤트 종료 시 Redis 키 즉시 제거
 - 만료 시간(TTL) 설정에 따라 이벤트 자동 종료 처리 (2차 안전장치)
 <br><br>
+
 ## 🗂️ ERD
 
 쿠폰 발급 성능과 정합성을 우선시하여  
@@ -88,6 +95,7 @@ Redis와 Lua를 활용해
   
 <img width="980" height="317" alt="image" src="https://github.com/user-attachments/assets/ea72d16e-8660-4c9f-a4b4-794b775a8848" />
 <br><br>
+
 ## ⚡ 부하 테스트 (k6)
 
 ### 테스트 조건
@@ -108,11 +116,13 @@ Redis와 Lua를 활용해
 
 <img width="592" height="366" alt="image" src="https://github.com/user-attachments/assets/2fb7c5fc-dc09-4556-afd4-6ae2148cf7dc" />
 <br><br>
+
 ### 성능 분석
 - 초당 2,800 요청 환경에서 실제 초당 처리량(RPS)은 1,500~1,800 수준으로 확인
 - 평균 HTTP 요청-응답 시간은 약 1.5초로 측정
 - Redis의 단일 스레드 특성으로 인해 요청 대기가 발생하여 성능에 영향을 준 것으로 판단
 <br><br>
+
 ## ✍️ 마무리
 선착순 쿠폰 발급을 구현하면서 클라이언트 요청이 몰릴 때  
 중복 발급 및 과발급 문제가 어떻게 발생하는지,  
