@@ -93,7 +93,7 @@ Redis와 Lua를 활용해
   (user_id, event_id) 유니크 제약을 적용해 대량 데이터 환경에서도 중복 발급 방지
 
   
-<img width="980" height="317" alt="image" src="https://github.com/user-attachments/assets/ea72d16e-8660-4c9f-a4b4-794b775a8848" />
+<img width="912" height="518" alt="image" src="https://github.com/user-attachments/assets/44087f9c-5e2c-4d72-8897-697dfb2eca5e" />
 <br><br>
 
 ## ⚡ 부하 테스트 (k6)
