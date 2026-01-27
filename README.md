@@ -92,8 +92,7 @@ Redis와 Lua를 활용해
   실제 발급 여부 판단은 Redis에서 처리하고  
   (user_id, event_id) 유니크 제약을 적용해 대량 데이터 환경에서도 중복 발급 방지
 
-  
-<img width="912" height="518" alt="image" src="https://github.com/user-attachments/assets/44087f9c-5e2c-4d72-8897-697dfb2eca5e" />
+<img width="884" height="496" alt="image" src="https://github.com/user-attachments/assets/25de7201-f409-46fb-b8bc-dfbe9c765b80" />
 <br><br>
 
 ## ⚡ 부하 테스트 (k6)
