@@ -3,7 +3,7 @@
 > Redis와 Lua를 활용해  
 > 대규모 요청 환경에서 한정 수량의 쿠폰을 정확하게 발급하고,  
 > 장애 대응까지 고려한 토이 프로젝트입니다.
-<br><br>
+><br><br>
 ## 🛠️ 기술 스택
 
 - Spring Boot, JPA, Redis, PostgreSQL
