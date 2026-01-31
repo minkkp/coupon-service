@@ -138,14 +138,17 @@ Redis와 Lua를 활용해
 
 ### 실행
 
-#### Linux / macOS
 ```bash
 git clone https://github.com/minkkp/coupon-service.git
 cd coupon-service
+```
+
+#### Linux / macOS
+```bash
 ./gradlew bootRun
+```
 
 #### Windows (Git Bash / PowerShell)
 ```bash
-git clone https://github.com/minkkp/coupon-service.git
-cd coupon-service
 gradlew.bat bootRun
+```
