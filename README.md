@@ -136,8 +136,6 @@ Redis와 Lua를 활용해
 - PostgreSQL
 - Gradle
 
-### 실행 
-
 #### Windows (PowerShell / CMD)
 ```bash
 git clone https://github.com/minkkp/coupon-service.git
