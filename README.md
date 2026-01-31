@@ -112,6 +112,7 @@ Redis와 Lua를 활용해
 - 과발급: 0
 - HTTP 요청 실패: 0%
 - coupon_issue 테이블에 발급 이력 100,000행 확인
+- 동시 요청 환경에서도 쿠폰 수량(100,000)을 초과하지 않고 정확하게 발급됨을 확인
 
 <img width="592" height="366" alt="image" src="https://github.com/user-attachments/assets/2fb7c5fc-dc09-4556-afd4-6ae2148cf7dc" />
 <br><br>
@@ -126,3 +127,17 @@ Redis와 Lua를 활용해
 선착순 쿠폰 발급을 구현하면서 클라이언트 요청이 몰릴 때  
 중복 발급 및 과발급 문제가 어떻게 발생하는지,  
 그리고 이를 안정적으로 제어하는 방법을 고민해볼 수 있었습니다.
+
+## ⚙️ 로컬 실행 방법
+
+### 실행 환경
+- Java 17 이상
+- Redis (로컬 실행)
+- PostgreSQL
+- Gradle
+
+### 실행
+```bash
+git clone https://github.com/minkkp/coupon-service.git
+cd coupon-service
+./gradlew bootRun
