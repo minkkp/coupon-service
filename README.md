@@ -148,5 +148,5 @@ gradlew.bat bootRun
 ```bash
 git clone https://github.com/minkkp/coupon-service.git
 cd coupon-service
-./gradlew.bat bootRun
+./gradlew bootRun
 ```
