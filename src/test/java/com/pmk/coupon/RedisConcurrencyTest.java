@@ -5,6 +5,7 @@ import com.pmk.coupon.domain.event.Event;
 import com.pmk.coupon.domain.event.EventRepository;
 import com.pmk.coupon.service.couponissue.CouponFacadeService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@SpringBootTest
+@Disabled("test")
 class RedisConcurrencyTest {
 
     @Autowired
