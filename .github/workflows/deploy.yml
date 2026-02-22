@@ -57,6 +57,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
+            cd coupon-service
             docker pull ${{ secrets.DOCKER_USERNAME }}/coupon-service:latest
             docker-compose down
             docker-compose up -d
