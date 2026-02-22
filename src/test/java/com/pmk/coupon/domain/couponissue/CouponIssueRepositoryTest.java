@@ -13,7 +13,7 @@ class CouponIssueRepositoryTest {
     private CouponIssueRepository repository;
 
     @Test
-    void 이벤트별_발급수_카운트() {
+    void countByEventId() {
 
         CouponIssue issue1 = CouponIssue.issued(1L, 100L);
         CouponIssue issue2 = CouponIssue.issued(2L, 100L);

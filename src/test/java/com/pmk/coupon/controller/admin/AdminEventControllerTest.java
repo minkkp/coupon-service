@@ -23,7 +23,7 @@ class AdminEventControllerTest {
     private EventService eventService;
 
     @Test
-    void openEvent_요청시_service_openEvent_호출() throws Exception {
+    void openEvent() throws Exception {
 
         mockMvc.perform(post("/admin/events/open/1"))
                 .andExpect(status().isOk());
@@ -32,7 +32,7 @@ class AdminEventControllerTest {
     }
 
     @Test
-    void closeEvent_요청시_service_closeEvent_호출() throws Exception {
+    void closeEvent() throws Exception {
 
         mockMvc.perform(post("/admin/events/close/1"))
                 .andExpect(status().isOk());

@@ -31,17 +31,14 @@ class CouponFacadeServiceTest {
     private CouponFacadeService couponFacadeService;
 
     @Test
-    void 발급성공시_async저장호출() {
+    void couponFacade_success() {
 
-        // given
         given(redisCouponService.issue(100L, 1L))
                 .willReturn(CouponIssueResult.SUCCESS);
 
-        // when
         CouponIssueResult result =
                 couponFacadeService.issue(1L, 100L);
 
-        // then
         assertThat(result).isEqualTo(CouponIssueResult.SUCCESS);
 
         verify(eventService).validateIssuable(100L);
@@ -49,7 +46,7 @@ class CouponFacadeServiceTest {
     }
 
     @Test
-    void 소진시_async저장호출안함() {
+    void couponFacade_soldOut() {
 
         given(redisCouponService.issue(100L, 1L))
                 .willReturn(CouponIssueResult.SOLD_OUT);

@@ -27,7 +27,7 @@ class CouponIssueControllerTest {
     private CouponFacadeService couponFacadeService;
 
     @Test
-    void 쿠폰발급_성공() throws Exception {
+    void couponIssue_success() throws Exception {
 
         given(couponFacadeService.issue(1L, 100L))
                 .willReturn(CouponIssueResult.SUCCESS);
@@ -50,7 +50,7 @@ class CouponIssueControllerTest {
     }
 
     @Test
-    void 쿠폰발급_소진() throws Exception {
+    void couponIssue_soldOut() throws Exception {
 
         given(couponFacadeService.issue(1L, 100L))
                 .willReturn(CouponIssueResult.SOLD_OUT);
@@ -68,5 +68,8 @@ class CouponIssueControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value("SOLD_OUT"))
                 .andExpect(jsonPath("$.message").value("쿠폰 소진"));
+
+
+        verify(couponFacadeService).issue(1L, 100L);
     }
 }
