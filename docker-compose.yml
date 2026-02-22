@@ -30,7 +30,7 @@ services:
       retries: 5
 
   coupon-service:
-    build: .
+    image: minkkp/coupon-service:latest
     restart: always
     env_file:
       - .env
