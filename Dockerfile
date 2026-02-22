@@ -18,6 +18,6 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
 # jar 복사
-COPY --from=build /app/build/libs/*SNAPSHOT.jar app.jar
+COPY --from=build /app/build/libs/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
