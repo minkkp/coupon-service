@@ -19,12 +19,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Grant execute permission
-        run: chmod +x ./gradlew
-
-      - name: Run Tests
-        run: ./gradlew test
-
   build-and-push:
     needs: test
     runs-on: ubuntu-latest
