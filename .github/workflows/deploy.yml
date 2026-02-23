@@ -65,4 +65,5 @@ jobs:
             cd coupon-service
             export TAG=${{ github.sha }}
             docker pull ${{ secrets.DOCKER_USERNAME }}/coupon-service:$TAG
+            docker-compose down
             docker-compose up -d --remove-orphans
