@@ -32,7 +32,7 @@ services:
       retries: 5
 
   coupon-service:
-    image: minkkp/coupon-service:latest
+    image: minkkp/coupon-service:${TAG}
     restart: unless-stopped
     env_file:
       - .env
