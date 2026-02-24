@@ -1,1 +1,1 @@
-set $service_url coupon-service-blue;
+server coupon-service-blue:8080;
