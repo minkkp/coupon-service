@@ -10,8 +10,7 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
-if docker compose exec -T $NGINX_SERVICE \
-    cat /etc/nginx/conf.d/upstream.inc | grep -q "$BLUE_SERVICE"; then
+if grep -q "$BLUE_SERVICE" $UPSTREAM_FILE; then
     CURRENT="blue"
     TARGET="green"
     TARGET_PORT=8082
