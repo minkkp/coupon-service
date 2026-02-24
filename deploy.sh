@@ -49,7 +49,7 @@ echo "Health check passed."
 echo "Switching nginx upstream to $TARGET..."
 
 echo "set \$service_url coupon-service-$TARGET;" > $UPSTREAM_FILE
-docker cp $UPSTREAM_FILE $(docker compose ps -q $NGINX_SERVICE):/etc/nginx/conf.d/upstream.inc
+docker compose exec -T $NGINX_SERVICE sh -c \ "cat > /etc/nginx/conf.d/upstream.inc" < $UPSTREAM_FILE
 
 if ! docker compose exec -T $NGINX_SERVICE nginx -t; then
   echo "Nginx config test failed. Rolling back..."
