@@ -1,1 +1,1 @@
-server coupon-service-blue:8080;
+server coupon-service-green:8080 resolve;
