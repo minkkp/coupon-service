@@ -10,16 +10,6 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
-echo "Checking nginx status..."
-
-if ! docker compose ps nginx | grep -q "Up"; then
-  echo "Nginx is not running. Starting nginx..."
-  docker compose up -d nginx
-  sleep 3
-else
-  echo "Nginx is already running."
-fi
-
 if grep -q "$BLUE_SERVICE" $UPSTREAM_FILE; then
     CURRENT="blue"
     TARGET="green"
@@ -54,6 +44,16 @@ until curl -fs http://localhost:$TARGET_PORT/actuator/health | grep -q "UP"; do
 done
 
 echo "Health check passed."
+
+echo "Checking nginx status..."
+
+if ! docker compose ps nginx | grep -q "Up"; then
+  echo "Nginx is not running. Starting nginx..."
+  docker compose up -d nginx
+  sleep 3
+else
+  echo "Nginx is already running."
+fi
 
 echo "Switching nginx upstream to $TARGET..."
 
