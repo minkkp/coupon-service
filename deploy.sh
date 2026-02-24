@@ -57,7 +57,6 @@ fi
 
 echo "Switching nginx upstream to $TARGET..."
 
-sleep 3
 
 echo "server coupon-service-$TARGET:8080;" > $UPSTREAM_FILE
 
@@ -70,10 +69,8 @@ fi
 docker compose exec -T $NGINX_SERVICE nginx -s reload
 echo "Traffic successfully switched to $TARGET"
 
-sleep 5
-
 echo "Stopping previous container: $CURRENT"
-docker compose stop coupon-service-$CURRENT
+docker compose stop -t 60 coupon-service-$CURRENT
 
 echo "========================================="
 echo "Blue-Green Deployment Completed"
