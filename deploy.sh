@@ -13,6 +13,7 @@ echo "Starting Blue-Green Deployment"
 echo "========================================="
 
 docker compose up -d nginx
+sleep 5
 
 if docker compose exec -T $NGINX_SERVICE \
     cat /etc/nginx/conf.d/upstream.inc | grep -q "$BLUE_SERVICE"; then
