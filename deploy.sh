@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export COMPOSE_PROJECT_NAME=coupon-service
+
 BLUE_SERVICE="coupon-service-blue"
 GREEN_SERVICE="coupon-service-green"
 NGINX_SERVICE="nginx"
