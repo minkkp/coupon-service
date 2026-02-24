@@ -1,0 +1,1 @@
+set $service_url coupon-service-blue;
