@@ -10,7 +10,7 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
-if docker-compose exec -T $NGINX_SERVICE \
+if docker compose exec -T $NGINX_SERVICE \
     cat /etc/nginx/conf.d/upstream.inc | grep -q "$BLUE_SERVICE"; then
     CURRENT="blue"
     TARGET="green"
@@ -25,7 +25,7 @@ echo "Current active environment: $CURRENT"
 echo "Target environment: $TARGET"
 
 echo "Starting $TARGET container..."
-docker-compose up -d coupon-service-$TARGET
+docker compose up -d coupon-service-$TARGET
 
 echo "Performing health check on port $TARGET_PORT..."
 
@@ -37,7 +37,7 @@ until curl -fs http://localhost:$TARGET_PORT/actuator/health | grep -q "UP"; do
 
   if [ $COUNT -ge $MAX_RETRY ]; then
     echo "Health check failed. Rolling back..."
-    docker-compose stop coupon-service-$TARGET
+    docker compose stop coupon-service-$TARGET
     exit 1
   fi
 
@@ -51,19 +51,19 @@ echo "Switching nginx upstream to $TARGET..."
 echo "set \$service_url coupon-service-$TARGET;" > $UPSTREAM_FILE
 docker cp $UPSTREAM_FILE $(docker compose ps -q $NGINX_SERVICE):/etc/nginx/conf.d/upstream.inc
 
-if ! docker-compose exec -T $NGINX_SERVICE nginx -t; then
+if ! docker compose exec -T $NGINX_SERVICE nginx -t; then
   echo "Nginx config test failed. Rolling back..."
-  docker-compose stop coupon-service-$TARGET
+  docker compose stop coupon-service-$TARGET
   exit 1
 fi
 
-docker-compose exec -T $NGINX_SERVICE nginx -s reload
+docker compose exec -T $NGINX_SERVICE nginx -s reload
 echo "Traffic successfully switched to $TARGET"
 
 sleep 5
 
 echo "Stopping previous container: $CURRENT"
-docker-compose stop coupon-service-$CURRENT
+docker compose stop coupon-service-$CURRENT
 
 echo "========================================="
 echo "Blue-Green Deployment Completed"
