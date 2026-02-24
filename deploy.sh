@@ -12,6 +12,8 @@ echo "========================================="
 
 docker compose up -d nginx
 
+sleep 3
+
 if grep -q "$BLUE_SERVICE" $UPSTREAM_FILE; then
     CURRENT="blue"
     TARGET="green"
