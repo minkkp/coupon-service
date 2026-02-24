@@ -10,6 +10,16 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
+echo "Checking nginx status..."
+
+if ! docker compose ps nginx | grep -q "Up"; then
+  echo "Nginx is not running. Starting nginx..."
+  docker compose up -d nginx
+  sleep 3
+else
+  echo "Nginx is already running."
+fi
+
 if grep -q "$BLUE_SERVICE" $UPSTREAM_FILE; then
     CURRENT="blue"
     TARGET="green"
