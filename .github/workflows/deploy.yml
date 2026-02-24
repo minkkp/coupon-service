@@ -64,7 +64,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd coupon-service
-            export TAG=${{ github.sha }}
+            export TAG=${{ github.sha }}            
             docker pull ${{ secrets.DOCKER_USERNAME }}/coupon-service:$TAG
             chmod +x deploy.sh
             ./deploy.sh

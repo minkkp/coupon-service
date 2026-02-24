@@ -10,9 +10,7 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
-docker compose up -d nginx
-
-sleep 3
+docker compose up -d
 
 if grep -q "$BLUE_SERVICE" $UPSTREAM_FILE; then
     CURRENT="blue"
