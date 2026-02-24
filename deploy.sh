@@ -10,6 +10,8 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
+docker compose up -d nginx
+
 if grep -q "$BLUE_SERVICE" $UPSTREAM_FILE; then
     CURRENT="blue"
     TARGET="green"
@@ -49,7 +51,7 @@ echo "Switching nginx upstream to $TARGET..."
 
 sleep 3
 
-echo "server coupon-service-$TARGET:8080 resolve;" > $UPSTREAM_FILE
+echo "server coupon-service-$TARGET:8080;" > $UPSTREAM_FILE
 
 if ! docker compose exec -T $NGINX_SERVICE nginx -t; then
   echo "Nginx config test failed. Rolling back..."
