@@ -1,3 +1,1 @@
-upstream service {
-    server coupon-service-blue:8080;
-}
+set $service_url coupon-service-blue;

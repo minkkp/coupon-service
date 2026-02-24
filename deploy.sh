@@ -10,8 +10,6 @@ echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
 
-docker compose up -d
-
 if docker compose exec -T $NGINX_SERVICE \
     cat /etc/nginx/conf.d/upstream.inc | grep -q "$BLUE_SERVICE"; then
     CURRENT="blue"
@@ -50,7 +48,7 @@ echo "Health check passed."
 
 echo "Switching nginx upstream to $TARGET..."
 
-echo "upstream service { server coupon-service-$TARGET:8080; }" > $UPSTREAM_FILE
+echo "set \$service_url coupon-service-$TARGET;" > $UPSTREAM_FILE
 docker cp $UPSTREAM_FILE $(docker compose ps -q $NGINX_SERVICE):/etc/nginx/conf.d/upstream.inc
 
 if ! docker compose exec -T $NGINX_SERVICE nginx -t; then
