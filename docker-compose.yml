@@ -59,7 +59,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./upstream.inc:/etc/nginx/conf.d/upstream.inc:ro
+      - ./upstream.inc:/etc/nginx/conf.d/upstream.inc
     depends_on:
       - coupon-service-blue
       - coupon-service-green

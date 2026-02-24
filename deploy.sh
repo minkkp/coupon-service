@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-export COMPOSE_PROJECT_NAME=coupon-service
-
 BLUE_SERVICE="coupon-service-blue"
 GREEN_SERVICE="coupon-service-green"
 NGINX_SERVICE="nginx"
@@ -11,9 +9,6 @@ UPSTREAM_FILE="./upstream.inc"
 echo "========================================="
 echo "Starting Blue-Green Deployment"
 echo "========================================="
-
-docker compose up -d nginx
-sleep 5
 
 if docker compose exec -T $NGINX_SERVICE \
     cat /etc/nginx/conf.d/upstream.inc | grep -q "$BLUE_SERVICE"; then
@@ -53,8 +48,10 @@ echo "Health check passed."
 
 echo "Switching nginx upstream to $TARGET..."
 
-docker compose exec -T $NGINX_SERVICE sh -c "echo 'set \$service_url coupon-service-$TARGET;' > /etc/nginx/conf.d/upstream.inc"
+sleep 3
 
+echo "set \$service_url coupon-service-$TARGET;" > $UPSTREAM_FILE
+docker compose exec -T $NGINX_SERVICE sh -c "cat > /etc/nginx/conf.d/upstream.inc" < $UPSTREAM_FILE
 
 if ! docker compose exec -T $NGINX_SERVICE nginx -t; then
   echo "Nginx config test failed. Rolling back..."
