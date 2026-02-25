@@ -168,7 +168,7 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 <img width="600" height="240" alt="image" src="https://github.com/user-attachments/assets/a07e8372-c071-4094-9196-a5602e097e5b" />
 
 ### 🔹 인프라 아키텍처
-<img width="470" height="600" alt="image" src="https://github.com/user-attachments/assets/183444d4-e836-45db-9ea8-d7cf6098c89f" />
+<img width="430" height="600" alt="image" src="https://github.com/user-attachments/assets/183444d4-e836-45db-9ea8-d7cf6098c89f" />
 
 <br><br>
 ## ✍️ 마무리
