@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'coupon-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets:
+          - 'coupon-service-blue:8080'
+          - 'coupon-service-green:8080'

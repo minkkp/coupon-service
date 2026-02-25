@@ -28,3 +28,6 @@ management:
     web:
       exposure:
         include: health, info, prometheus
+  endpoint:
+    health:
+      show-details: always

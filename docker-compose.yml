@@ -41,6 +41,7 @@ services:
         condition: service_healthy
     ports:
       - "8081:8080"
+
   coupon-service-green:
     image: minkkp/coupon-service:${TAG}
     restart: unless-stopped
@@ -53,6 +54,7 @@ services:
         condition: service_healthy
     ports:
       - "8082:8080"
+
   nginx:
     image: nginx:latest
     restart: unless-stopped
@@ -66,5 +68,12 @@ services:
         condition: service_started
       coupon-service-green:
         condition: service_started
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
 volumes:
   postgres-data:
