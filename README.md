@@ -174,23 +174,3 @@ Blue/Green 배포를 통한 무중단 운영,
 Prometheus + Grafana 기반 모니터링 구성은  
 실무 환경에 가까운 경험을 목표로 설계한 부분입니다.
 <br><br>
-## ➡️ 로컬 실행 방법
-
-### 실행 환경
-- Java 17 이상
-- Redis (로컬 실행)
-- PostgreSQL
-- Gradle
-
-#### Windows (PowerShell / CMD)
-```bash
-git clone https://github.com/minkkp/coupon-service.git
-cd coupon-service
-gradlew.bat bootRun
-```
-#### Linux / macOS
-```bash
-git clone https://github.com/minkkp/coupon-service.git
-cd coupon-service
-./gradlew bootRun
-```
