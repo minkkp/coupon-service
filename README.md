@@ -165,7 +165,8 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 - Grafana 대시보드 구성
 - Redis 메모리 사용량 및 요청 처리 지표 시각화
 - HTTP 요청에서 5xx 응답 발생 시 Alert를 설정하여 장애를 조기 감지
-  
+<img width="787" height="261" alt="image" src="https://github.com/user-attachments/assets/a07e8372-c071-4094-9196-a5602e097e5b" />
+
 ### 🔹 인프라 아키텍처
 <img width="471" height="637" alt="image" src="https://github.com/user-attachments/assets/183444d4-e836-45db-9ea8-d7cf6098c89f" />
 
