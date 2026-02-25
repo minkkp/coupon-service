@@ -18,8 +18,7 @@ Prometheus + Grafana 모니터링까지 구성한 프로젝트입니다.
 - Nginx (Reverse Proxy)
 - GitHub Actions (CI/CD)
 - Blue/Green Deployment (Shell Script 기반)
-- Prometheus
-- Grafana
+- Prometheus + Grafana (메트릭 수집 & 모니터링)
 <br><br>
 
 ## 📌 프로젝트 목적
