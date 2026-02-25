@@ -36,8 +36,8 @@ services:
   coupon-service-blue:
     image: minkkp/coupon-service:${TAG}
     restart: unless-stopped
-    mem_limit: 512m
-    cpus: "0.5"
+    cpus: "1.0"
+    mem_limit: 1g
     environment:
       - JAVA_TOOL_OPTIONS=-Xms256m -Xmx384m
     env_file:
@@ -53,8 +53,8 @@ services:
   coupon-service-green:
     image: minkkp/coupon-service:${TAG}
     restart: unless-stopped
-    mem_limit: 512m
-    cpus: "0.5"
+    cpus: "1.0"
+    mem_limit: 1g
     environment:
       - JAVA_TOOL_OPTIONS=-Xms256m -Xmx384m
     env_file:
