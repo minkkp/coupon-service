@@ -55,6 +55,7 @@ services:
       - "8082:8080"
   nginx:
     image: nginx:latest
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
