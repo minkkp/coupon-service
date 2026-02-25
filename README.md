@@ -167,7 +167,7 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 - HTTP 요청에서 5xx 응답 발생 시 Alert를 설정하여 장애를 조기 감지
   
 ### 🔹 인프라 아키텍처
-<img width="1024" height="1536" alt="ChatGPT Image 2026년 2월 25일 오후 04_54_08" src="https://github.com/user-attachments/assets/9c95a299-c09c-4563-9fb3-7387f97bbef0" />
+<img width="471" height="637" alt="image" src="https://github.com/user-attachments/assets/183444d4-e836-45db-9ea8-d7cf6098c89f" />
 
 <br><br>
 ## ✍️ 마무리
