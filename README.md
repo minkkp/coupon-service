@@ -156,7 +156,7 @@ Prometheus + Grafana 모니터링까지 구성한 프로젝트입니다.
 - main 브랜치 push 시 GitHub Actions 실행
 - 테스트 통과 후 Docker 이미지 빌드
 - github.sha 기반 버전 태깅
-- DockerHub 푸시 후 EC2 SSH 접속 자동 배포
+- DockerHub 푸시 후 EC2 SSH 접속 및 배포
 
 ### 🔹 모니터링 환경 구축
 - Spring Boot Actuator + Micrometer 연동
