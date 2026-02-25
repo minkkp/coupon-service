@@ -2,6 +2,8 @@ services:
   postgres:
     image: postgres:15
     restart: unless-stopped
+    mem_limit: 512m
+    cpus: "0.5"
     env_file:
       - .env
     environment:
@@ -21,6 +23,8 @@ services:
   redis:
     image: redis:7
     restart: unless-stopped
+    mem_limit: 256m
+    cpus: "0.25"
     expose:
       - "6379"
     healthcheck:
@@ -32,6 +36,10 @@ services:
   coupon-service-blue:
     image: minkkp/coupon-service:${TAG}
     restart: unless-stopped
+    mem_limit: 512m
+    cpus: "0.5"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xms256m -Xmx384m
     env_file:
       - .env
     depends_on:
@@ -45,6 +53,10 @@ services:
   coupon-service-green:
     image: minkkp/coupon-service:${TAG}
     restart: unless-stopped
+    mem_limit: 512m
+    cpus: "0.5"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xms256m -Xmx384m
     env_file:
       - .env
     depends_on:
@@ -58,6 +70,8 @@ services:
   nginx:
     image: nginx:latest
     restart: unless-stopped
+    mem_limit: 128m
+    cpus: "0.25"
     ports:
       - "80:80"
     volumes:
@@ -71,6 +85,9 @@ services:
 
   prometheus:
     image: prom/prometheus
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: "0.25"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
@@ -78,7 +95,27 @@ services:
 
   grafana:
     image: grafana/grafana
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: "0.25"
     ports:
       - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+  redis-exporter:
+    image: oliver006/redis_exporter
+    restart: unless-stopped
+    mem_limit: 128m
+    cpus: "0.2"
+    environment:
+      - REDIS_ADDR=redis:6379
+    expose:
+      - "9121"
+    depends_on:
+      redis:
+        condition: service_healthy
+
 volumes:
   postgres-data:
+  grafana-data:
