@@ -126,7 +126,7 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 - coupon_issue 테이블에 발급 이력 100,000행 확인
 - 동시 요청 환경에서도 쿠폰 수량(100,000)을 초과하지 않고 정확하게 발급됨을 확인
 
-<img width="592" height="366" alt="image" src="https://github.com/user-attachments/assets/2fb7c5fc-dc09-4556-afd4-6ae2148cf7dc" />
+<img width="550" height="330" alt="image" src="https://github.com/user-attachments/assets/2fb7c5fc-dc09-4556-afd4-6ae2148cf7dc" />
 <br><br>
 
 ### 성능 분석
