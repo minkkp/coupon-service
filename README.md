@@ -165,6 +165,10 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 - Grafana 대시보드 구성
 - Redis 메모리 사용량 및 요청 처리 지표 시각화
 - HTTP 요청에서 5xx 응답 발생 시 Alert를 설정하여 장애를 조기 감지
+  
+### 🔹 인프라 아키텍처
+<img width="1024" height="1536" alt="ChatGPT Image 2026년 2월 25일 오후 04_54_08" src="https://github.com/user-attachments/assets/9c95a299-c09c-4563-9fb3-7387f97bbef0" />
+
 <br><br>
 ## ✍️ 마무리
 선착순 쿠폰 발급을 구현하며 단순 기능 개발을 넘어  
