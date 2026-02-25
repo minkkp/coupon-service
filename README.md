@@ -160,7 +160,7 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 - DockerHub 푸시 후 EC2 SSH 접속 및 배포
 
 ### 🔹 모니터링 환경 구축
-- Spring Boot Actuator + Micrometer 연동
+- Spring Boot Actuator 기반 메트릭 노출
 - Prometheus를 통한 JVM / HTTP / Redis 메트릭 수집
 - Grafana 대시보드 구성
 - Redis 메모리 사용량 및 요청 처리 지표 시각화
