@@ -17,7 +17,7 @@ Prometheus·Grafana 기반 모니터링까지 구성한 프로젝트입니다.
 - Docker / Docker Compose
 - Nginx (Reverse Proxy)
 - GitHub Actions (CI/CD)
-- Blue/Green Deployment (Shell Script 기반)
+- Blue/Green Deployment (Shell Script + Nginx Upstream 전환 기반 무중단 배포)
 - Prometheus + Grafana (메트릭 수집 & 모니터링)
 <br><br>
 
