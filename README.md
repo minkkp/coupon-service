@@ -134,6 +134,36 @@ Prometheus + Grafana 모니터링까지 구성한 프로젝트입니다.
 - Redis의 단일 스레드 특성으로 인해 요청 대기가 발생하여 성능에 영향을 준 것으로 판단
 <br><br>
 
+## 🚀 배포 및 운영 경험
+
+### 🔹 EC2 + Docker Compose 기반 인프라 구성
+- 단일 EC2 인스턴스에서 Docker Compose로 전체 스택 구성
+  - PostgreSQL
+  - Redis
+  - Blue / Green 애플리케이션 컨테이너
+  - Nginx Reverse Proxy
+  - Prometheus
+  - Grafana
+- 컨테이너별 CPU / Memory 제한 설정으로 자원 독점 방지
+
+### 🔹 Blue/Green 무중단 배포 구현
+- coupon-service-blue / coupon-service-green 이중 컨테이너 운영
+- 신규 버전 기동 후 `/actuator/health` 기반 헬스 체크 검증
+- 성공 시 Nginx upstream 동적 변경
+- Graceful Shutdown 설정(60초)으로 요청 유실 방지
+
+### 🔹 CI/CD 자동화
+- main 브랜치 push 시 GitHub Actions 실행
+- 테스트 통과 후 Docker 이미지 빌드
+- github.sha 기반 버전 태깅
+- DockerHub 푸시 후 EC2 SSH 접속 자동 배포
+
+### 🔹 모니터링 환경 구축
+- Spring Boot Actuator + Micrometer 연동
+- Prometheus를 통한 JVM / HTTP / Redis 메트릭 수집
+- Grafana 대시보드 구성
+- Redis 메모리 사용량 및 요청 처리 지표 시각화
+<br><br>
 ## ✍️ 마무리
 선착순 쿠폰 발급을 구현하면서 클라이언트 요청이 몰릴 때  
 중복 발급 및 과발급 문제가 어떻게 발생하는지,  
