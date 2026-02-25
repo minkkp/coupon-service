@@ -1,13 +1,25 @@
 # 선착순 쿠폰 발급 시스템
 
-Redis와 Lua를 활용해  
-대규모 요청 환경에서 한정 수량의 쿠폰을 정확하게 발급하고,  
-장애 대응까지 고려한 토이 프로젝트입니다.
+Redis + Lua를 활용해 대규모 요청 환경에서 한정 수량의 쿠폰을 정확하게 발급하고,  
+AWS EC2 환경에 Docker 기반으로 배포하여 Blue/Green 무중단 배포 및  
+Prometheus + Grafana 모니터링까지 구성한 프로젝트입니다.
 <br><br>
 
 ## 🛠️ 기술 스택
 
-- Spring Boot, JPA, Redis, PostgreSQL
+### Backend
+- Spring Boot, JPA
+- Redis (Lua Script)
+- PostgreSQL
+
+### Infra / DevOps
+- AWS EC2
+- Docker / Docker Compose
+- Nginx (Reverse Proxy)
+- GitHub Actions (CI/CD)
+- Blue/Green Deployment (Shell Script 기반)
+- Prometheus
+- Grafana
 <br><br>
 
 ## 📌 프로젝트 목적
